@@ -5,7 +5,7 @@ const conversationStore = useConversationStore();
 </script>
 
 <template>
-  <div :class="$style.root" class="flex flex-col gap-4 mx-4">
+  <div :class="$style.root" class="flex flex-col gap-4 mx-2">
     <ChatBubble
       v-for="(message, index) in conversationStore.currentConversation"
       :key="index"

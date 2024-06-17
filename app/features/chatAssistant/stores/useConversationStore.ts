@@ -1,7 +1,7 @@
 import { useChatCompletion } from "~/composables/open-ai/useChatCompletion";
 import { defineStore } from "pinia";
 import type OpenAI from "openai";
-import { generalAssistantPrompt } from "~/prompts/tools";
+import { generalAssistantPrompt } from "~/features/chatAssistant/prompts/tools";
 
 export const useConversationStore = defineStore("useConversationStore", () => {
   const currentConversation = ref<OpenAI.ChatCompletionMessageParam[]>([]);

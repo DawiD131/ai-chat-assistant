@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import { generalAssistantPrompt, translatorPrompt } from "~/prompts/tools";
+import {
+  generalAssistantPrompt,
+  translatorPrompt,
+} from "~/features/chatAssistant/prompts/tools";
+import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
 
 const conversationStore = useConversationStore();
 

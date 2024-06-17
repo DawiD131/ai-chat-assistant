@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useConversationStore } from "~/stores/useConversationStore";
+import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
 
 const inputValue = ref("");
 

@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import Prompter from "~/components/Prompter.vue";
-import ToolSelector from "~/components/ToolSelector.vue";
-
 definePageMeta({
   middleware: "auth",
 });

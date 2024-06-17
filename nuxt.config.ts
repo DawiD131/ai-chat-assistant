@@ -14,6 +14,13 @@ export default defineNuxtConfig({
       ],
     },
   },
+  components: [
+    {
+      path: "~/features/chatAssistant/components",
+      pathPrefix: false,
+    },
+  ],
+  srcDir: "app/",
   pwa: {
     manifest: {
       name: "Lua",
@@ -26,9 +33,6 @@ export default defineNuxtConfig({
           purpose: "any",
         },
       ],
-    },
-    devOptions: {
-      enabled: true,
     },
     workbox: {
       navigateFallback: "/",

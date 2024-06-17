@@ -9,12 +9,10 @@ definePageMeta({
 
 <template>
   <div
-    class="flex flex-col min-h-screen justify-between px-4 py-4 max-w-screen-xl mx-auto"
+    class="flex flex-col min-h-[100dvh] max-h-[100dvh] justify-center px-4 py-4 max-w-screen-xl mx-auto gap-4"
   >
-    <div>
-      <ToolSelector />
-      <ConversationView />
-    </div>
+    <ToolSelector />
+    <ConversationView />
     <Prompter />
   </div>
 </template>

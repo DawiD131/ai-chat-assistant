@@ -7,11 +7,14 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start:production": "pm2 start ecosystem.config.cjs",
+    "start:ngrok": "ngrok http 300"
   },
   "dependencies": {
     "@nuxt/ui": "^2.17.0",
     "@pinia/nuxt": "^0.5.1",
+    "@vite-pwa/nuxt": "^0.8.0",
     "highlight.js": "^11.9.0",
     "marked": "^13.0.0",
     "marked-highlight": "^2.1.2",

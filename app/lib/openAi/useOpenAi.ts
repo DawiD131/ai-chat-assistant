@@ -4,7 +4,7 @@ export const useOpenAi = () => {
   const config = useRuntimeConfig();
 
   return new OpenAI({
-    apiKey: config.public.openAiApiKey,
+    apiKey: config.private.openAiApiKey,
     dangerouslyAllowBrowser: true,
   });
 };

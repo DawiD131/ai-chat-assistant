@@ -1,20 +1,31 @@
 <script lang="ts" setup>
 import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
 
-const inputValue = ref("");
-
 const conversationStore = useConversationStore();
 
 conversationStore.setSystemPrompt("Always answer in markdown format");
-const send = () => {
-  conversationStore.pushMessage(inputValue.value);
-  inputValue.value = "";
+
+const state = reactive({
+  message: "",
+});
+
+const onSubmit = () => {
+  conversationStore.pushMessage(state.message);
+  state.message = "";
 };
 </script>
 
 <template>
-  <div>
-    <UTextarea v-model="inputValue" />
+  <UForm
+    :state="state"
+    class="space-y-4"
+    @submit="onSubmit"
+    @keyup.enter="onSubmit"
+  >
+    <UFormGroup name="message">
+      <UTextarea v-model="state.message" />
+    </UFormGroup>
+
     <UButton
       icon="i-heroicons-paper-airplane"
       size="md"
@@ -24,7 +35,7 @@ const send = () => {
       trailing
       block
       class="mt-4"
-      @click="send"
+      type="submit"
     />
-  </div>
+  </UForm>
 </template>

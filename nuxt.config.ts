@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     },
   },
   runtimeConfig: {
-    public: {
+    private: {
       openAiApiKey: process.env.OPEN_AI_API_KEY,
     },
   },

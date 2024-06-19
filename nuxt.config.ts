@@ -36,7 +36,9 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
     },
+    registerType: "autoUpdate",
   },
   runtimeConfig: {
     private: {

@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/ui", "@pinia/nuxt", "@nuxtjs/supabase", "@vite-pwa/nuxt"],
   app: {
     head: {
+      title: "Lua assistant",
       meta: [
         {
           name: "viewport",
@@ -12,6 +13,7 @@ export default defineNuxtConfig({
             "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
         },
       ],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/icon.svg" }],
     },
   },
   components: [
@@ -35,7 +37,7 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
+      globPatterns: ["**/*.{js,css,html,ico,png,svg}", "/"],
     },
     registerType: "autoUpdate",
   },

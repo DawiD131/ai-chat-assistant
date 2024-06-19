@@ -1,0 +1,4 @@
+<template>
+  <VitePwaManifest />
+  <slot />
+</template>

@@ -22,10 +22,9 @@ jobs:
 
       # Setup virtual env, install dependencies
       - name: install dependencies
-        run: npm i pnpm -g
+        run:  npx pnpm install
 
       - name: run build
         run: |
-          pnpm run install
-          pnpm run build
-          pnpm run start:production
+          npx pnpm run build
+          npx pnpm run start:production

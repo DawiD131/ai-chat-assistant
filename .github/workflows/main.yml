@@ -20,6 +20,12 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
 
+      - name: prepare
+        env:
+          OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: echo "environment was prepared"
       # Setup virtual env, install dependencies
       - name: install dependencies
         run:  npx pnpm install

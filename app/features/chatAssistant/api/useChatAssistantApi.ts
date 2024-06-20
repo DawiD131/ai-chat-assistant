@@ -11,7 +11,7 @@ export const useChatAssistantApi = () => {
       method: "post",
       body: {
         messages: [{ role: "system", content: systemPrompt }, ...conversation],
-        model: "gpt-3.5-turbo",
+        model: "gpt-4-turbo",
       },
     });
 

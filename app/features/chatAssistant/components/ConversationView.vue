@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
-import ChatBubble from "~/features/chatAssistant/components/_internal/ChatBubble.vue";
+import ChatBubble from "~/features/chatAssistant/components/ChatBubble.vue";
 
 const conversationStore = useConversationStore();
 </script>

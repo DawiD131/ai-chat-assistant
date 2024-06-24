@@ -2,7 +2,7 @@
 import { Marked } from "marked";
 import hljs from "highlight.js";
 import { markedHighlight } from "marked-highlight";
-import "highlight.js/styles/a11y-dark.css";
+import "highlight.js/styles/an-old-hope.css";
 interface Props {
   message: string;
   isAnswer?: boolean;

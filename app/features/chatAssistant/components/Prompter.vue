@@ -3,8 +3,6 @@ import { useConversationStore } from "~/features/chatAssistant/stores/useConvers
 
 const conversationStore = useConversationStore();
 
-conversationStore.setSystemPrompt("Always answer in markdown format");
-
 const state = reactive({
   message: "",
 });

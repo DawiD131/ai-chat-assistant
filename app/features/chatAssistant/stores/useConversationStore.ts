@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 import type OpenAI from "openai";
-import { generalAssistantPrompt } from "~/features/chatAssistant/prompts/tools";
 import { useChatAssistantApi } from "~/features/chatAssistant/api/useChatAssistantApi";
+import { useToolsStore } from "~/features/chatAssistant/stores/useToolsStore";
 
 export const useConversationStore = defineStore("useConversationStore", () => {
   const currentConversation = ref<OpenAI.ChatCompletionMessageParam[]>([]);
-  const systemPrompt = ref(generalAssistantPrompt);
+
+  const toolsStore = useToolsStore();
 
   const { createChatCompletion } = useChatAssistantApi();
 
@@ -13,7 +14,7 @@ export const useConversationStore = defineStore("useConversationStore", () => {
     currentConversation.value.push({ role: "user", content });
 
     const answer = await createChatCompletion({
-      systemPrompt: systemPrompt.value,
+      systemPrompt: toolsStore.currentTool.prompt,
       conversation: currentConversation.value,
     });
 
@@ -26,11 +27,8 @@ export const useConversationStore = defineStore("useConversationStore", () => {
     });
   };
 
-  const setSystemPrompt = (content: string) => (systemPrompt.value = content);
-
   return {
     currentConversation,
     pushMessage,
-    setSystemPrompt,
   };
 });

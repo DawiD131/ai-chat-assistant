@@ -1,4 +1,4 @@
-import { useOpenAi } from "~/lib/openAi/useOpenAi";
+import { useOpenAi } from "~/server/lib/openAi/useOpenAi";
 
 type Response = Promise<{ answer: string | null }>;
 export default defineEventHandler(async (event): Response => {

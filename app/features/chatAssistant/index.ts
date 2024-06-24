@@ -1,3 +1,5 @@
-import { ChatAssistant } from "#components";
+import ChatConversationView from "~/features/chatAssistant/views/ChatConversationView.vue";
+import ChatHistoryView from "~/features/chatAssistant/views/ChatHistoryView.vue";
+import ChatSettingsView from "~/features/chatAssistant/views/ChatSettingsView.vue";
 
-export { ChatAssistant };
+export { ChatSettingsView, ChatConversationView, ChatHistoryView };

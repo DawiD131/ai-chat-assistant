@@ -18,7 +18,17 @@ export const useChatAssistantApi = () => {
     return answer;
   };
 
+  const speechToText = async (file: any): Promise<string> => {
+    const { text } = await $fetch("/api/chat-assistant/transcription", {
+      method: "post",
+      body: file,
+    });
+
+    return text;
+  };
+
   return {
     createChatCompletion,
+    speechToText,
   };
 };

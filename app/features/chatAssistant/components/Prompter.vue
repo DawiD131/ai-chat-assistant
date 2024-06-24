@@ -24,16 +24,20 @@ const onSubmit = () => {
       <UTextarea v-model="state.message" />
     </UFormGroup>
 
-    <UButton
-      icon="i-heroicons-paper-airplane"
-      size="md"
-      color="primary"
-      variant="solid"
-      label="Send"
-      trailing
-      block
-      class="mt-4"
-      type="submit"
-    />
+    <div class="flex gap-2 mt-4 box-border">
+      <div class="basis-[95%]">
+        <UButton
+          size="md"
+          color="primary"
+          variant="solid"
+          label="Send"
+          trailing
+          block
+          type="submit"
+          icon="i-heroicons-paper-airplane"
+        />
+      </div>
+      <AudioButton class="basis-[10%]" />
+    </div>
   </UForm>
 </template>

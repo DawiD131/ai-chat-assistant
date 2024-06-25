@@ -20,7 +20,7 @@ export const useAudioRecorder = () => {
         };
 
         mediaRecorder.onstop = () => {
-          blob.value = new Blob(chunks, { type: "audio/mpeg" });
+          blob.value = new Blob(chunks, { type: "audio/wav" });
 
           chunks = [] as BlobPart[];
         };

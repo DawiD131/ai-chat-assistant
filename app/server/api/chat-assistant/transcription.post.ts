@@ -7,7 +7,7 @@ export default defineEventHandler(async (event): Promise<{ text: string }> => {
 
   if (files) {
     const { text } = await openAi.audio.transcriptions.create({
-      file: await toFile(Buffer.from(files[0].data), "audio.mp3"),
+      file: await toFile(Buffer.from(files[0].data), "audio.wav"),
       model: "whisper-1",
     });
 

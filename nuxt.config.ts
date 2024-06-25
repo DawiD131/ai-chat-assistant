@@ -46,4 +46,13 @@ export default defineNuxtConfig({
       openAiApiKey: process.env.OPEN_AI_API_KEY,
     },
   },
+  supabase: {
+    redirectOptions: {
+      login: "/",
+      callback: "/confirm",
+      include: undefined,
+      exclude: [],
+      cookieRedirect: false,
+    },
+  },
 });

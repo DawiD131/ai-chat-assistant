@@ -15,7 +15,7 @@ async function login() {
     email: state.email,
     password: state.password,
   });
-  if (!error) return router.push("/");
+  if (!error) return router.push("/chat-assistant");
   console.log(error);
 }
 

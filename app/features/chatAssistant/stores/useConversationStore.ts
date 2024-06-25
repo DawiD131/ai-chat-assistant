@@ -27,8 +27,13 @@ export const useConversationStore = defineStore("useConversationStore", () => {
     });
   };
 
+  const clearConversation = () => {
+    currentConversation.value = [];
+  };
+
   return {
     currentConversation,
     pushMessage,
+    clearConversation,
   };
 });

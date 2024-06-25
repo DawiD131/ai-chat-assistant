@@ -21,6 +21,10 @@ export default defineNuxtConfig({
       path: "~/features/chatAssistant/components",
       pathPrefix: false,
     },
+    {
+      path: "~/features/chatAssistant/views",
+      pathPrefix: false,
+    },
   ],
   srcDir: "app/",
   pwa: {

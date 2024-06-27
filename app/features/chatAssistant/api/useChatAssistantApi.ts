@@ -15,7 +15,7 @@ export const useChatAssistantApi = () => {
       },
     });
 
-    return answer;
+    return { answer };
   };
 
   const speechToText = async (file: any): Promise<string> => {
@@ -27,8 +27,18 @@ export const useChatAssistantApi = () => {
     return text;
   };
 
+  const save = async (params: { id: string | null; conversation: any }) => {
+    const { conversationId } = await $fetch("/api/chat-assistant/save", {
+      method: "post",
+      body: params,
+    });
+
+    return conversationId;
+  };
+
   return {
     createChatCompletion,
     speechToText,
+    save,
   };
 };

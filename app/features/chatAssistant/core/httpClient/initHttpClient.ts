@@ -10,7 +10,7 @@ export const initHttpClient = () => {
     baseURL: config.public.apiUrl,
     timeout: 50000,
     headers: {
-      "Access-Control-Allow-Origin": config.public.apiUrl,
+      "Access-Control-Allow-Origin": config.public.apiUrl + "/",
     },
     withCredentials: true,
   });

@@ -7,9 +7,11 @@ export const initHttpClient = () => {
   if (typeof config.public.apiUrl !== "string") throw new Error("");
 
   const httpClient = axios.create({
-    baseURL: config.public?.apiUrl,
+    baseURL: config.public.apiUrl,
     timeout: 50000,
-    headers: { "X-Custom-Header": "foobar" },
+    headers: {
+      "Access-Control-Allow-Origin": config.public.apiUrl,
+    },
     withCredentials: true,
   });
 

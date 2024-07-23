@@ -3,7 +3,7 @@ import { useApiRepository } from "~/features/chatAssistant/composables/useApiRep
 
 export const useConversationStore = defineStore("useConversationStore", () => {
   const currentConversation = ref<any[]>([]);
-  const currentId = ref<string | null>(null);
+  const router = useRouter();
 
   const apiRepository = useApiRepository();
 
@@ -26,14 +26,18 @@ export const useConversationStore = defineStore("useConversationStore", () => {
 
   const clearConversation = () => {
     currentConversation.value = [];
-    currentId.value = null;
   };
 
-  const restoreConversationById = async (id: string) => {};
+  const restoreConversationById = async (id: string) => {
+    const resp =
+      await apiRepository.conversationRepository.getConversationById(id);
+    currentConversation.value = (resp as any).messages;
+
+    await router.push("/chat-assistant");
+  };
 
   return {
     currentConversation,
-    currentId,
     pushMessage,
     clearConversation,
     restoreConversationById,

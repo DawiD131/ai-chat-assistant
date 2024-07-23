@@ -18,13 +18,15 @@ const links = [
 ];
 </script>
 <template>
-  <div
-    class="flex flex-col min-h-[100dvh] max-h-[100dvh] px-4 pt-4 pb-8 max-w-screen-xl mx-auto gap-2"
-  >
-    <UHorizontalNavigation
-      :links="links"
-      class="border-b border-gray-200 dark:border-gray-800 mb-4"
-    />
-    <slot />
-  </div>
+  <ClientOnly>
+    <div
+      class="flex flex-col min-h-[100dvh] max-h-[100dvh] px-4 pt-4 pb-8 max-w-screen-xl mx-auto gap-2"
+    >
+      <UHorizontalNavigation
+        :links="links"
+        class="border-b border-gray-200 dark:border-gray-800 mb-4"
+      />
+      <slot />
+    </div>
+  </ClientOnly>
 </template>

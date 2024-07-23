@@ -25,7 +25,7 @@ const onSubmit = () => {
     </UFormGroup>
 
     <div class="flex gap-2 mt-4 box-border">
-      <div class="basis-[95%]">
+      <div class="basis-[100%]">
         <UButton
           size="md"
           color="primary"
@@ -37,7 +37,6 @@ const onSubmit = () => {
           icon="i-heroicons-paper-airplane"
         />
       </div>
-      <AudioButton class="basis-[10%]" />
     </div>
   </UForm>
 </template>

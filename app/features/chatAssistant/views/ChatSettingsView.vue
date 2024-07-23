@@ -4,9 +4,10 @@ import { useConversationStore } from "~/features/chatAssistant/core/conversation
 
 const conversationStore = useConversationStore();
 const router = useRouter();
-const clearConversation = () => {
+
+const clearConversation = async () => {
   conversationStore.clearConversation();
-  router.push("/chat-assistant");
+  await router.push("/chat-assistant");
 };
 </script>
 

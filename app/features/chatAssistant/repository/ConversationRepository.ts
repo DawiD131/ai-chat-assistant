@@ -6,4 +6,8 @@ export class ConversationRepository {
   async getAllConversations() {
     return await this.httpClient.get("/conversation");
   }
+
+  async getConversationById(id: string) {
+    return await this.httpClient.get(`/conversation/${id}`);
+  }
 }

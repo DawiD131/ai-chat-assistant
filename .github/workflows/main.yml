@@ -18,9 +18,7 @@ jobs:
 
       - name: run build
         env:
-          OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          API_URL: ${{ secrets.API_URL }}
         run: |
           npx pnpm run build
           npx pnpm run start:production

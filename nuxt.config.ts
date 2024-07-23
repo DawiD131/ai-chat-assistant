@@ -46,4 +46,9 @@ export default defineNuxtConfig({
     },
     registerType: "autoUpdate",
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.API_URL,
+    },
+  },
 });

@@ -4,8 +4,9 @@ import { AxiosHttpClient } from "~/features/chatAssistant/core/httpClient/AxiosH
 export const initHttpClient = () => {
   const httpClient = axios.create({
     baseURL: "http://localhost:8080",
-    timeout: 10000,
+    timeout: 50000,
     headers: { "X-Custom-Header": "foobar" },
+    withCredentials: true,
   });
 
   return new AxiosHttpClient(httpClient);

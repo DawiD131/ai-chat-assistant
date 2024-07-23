@@ -3,7 +3,6 @@ import { object, string } from "yup";
 import { useAuthStore } from "~/features/chatAssistant/core/auth/useAuthStore";
 
 const router = useRouter();
-const user = useSupabaseUser();
 
 const state = reactive({
   email: "",
@@ -12,11 +11,18 @@ const state = reactive({
 
 const authStore = useAuthStore();
 
-watchEffect(async () => {
-  if (user.value) {
-    await router.push("/chat-assistant");
-  }
-});
+watch(
+  computed(() => authStore.isAuthenticated),
+  async (value) => {
+    console.log("hello!");
+
+    if (value) {
+      console.log("redirect!");
+      await router.push("/chat-assistant");
+    }
+  },
+  { immediate: true },
+);
 
 const schema = object({
   email: string().email("Invalid email").required("Required"),

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AssistantLayout from "~/features/chatAssistant/components/AssistantLayout.vue";
-import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
+import { useConversationStore } from "~/features/chatAssistant/core/conversation/useConversationStore";
 
 const conversationStore = useConversationStore();
 const router = useRouter();
@@ -22,6 +22,5 @@ const clearConversation = () => {
       :trailing="false"
       @click="clearConversation"
     />
-    <ToolSelector />
   </AssistantLayout>
 </template>

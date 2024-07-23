@@ -2,7 +2,8 @@
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxt/ui", "@pinia/nuxt", "@nuxtjs/supabase", "@vite-pwa/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "@vite-pwa/nuxt"],
+  ssr: false,
   app: {
     head: {
       title: "Lua assistant",
@@ -44,20 +45,5 @@ export default defineNuxtConfig({
       globPatterns: ["**/*.{js,css,html,ico,png,svg}", "/"],
     },
     registerType: "autoUpdate",
-  },
-  runtimeConfig: {
-    private: {
-      openAiApiKey: process.env.OPEN_AI_API_KEY,
-      todoistApiKey: process.env.TODOIST_API_KEY,
-    },
-  },
-  supabase: {
-    redirectOptions: {
-      login: "/",
-      callback: "/confirm",
-      include: undefined,
-      exclude: [],
-      cookieRedirect: false,
-    },
   },
 });

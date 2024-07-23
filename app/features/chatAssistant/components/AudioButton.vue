@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { useAudioRecorder } from "~/features/chatAssistant/composables/useAudioRecorder";
-import { useConversationStore } from "~/features/chatAssistant/stores/useConversationStore";
-import { useChatAssistantApi } from "~/features/chatAssistant/api/useChatAssistantApi";
+import { useConversationStore } from "~/features/chatAssistant/core/conversation/useConversationStore";
 
 const { startRecording, stopRecording, isRecording, blob } = useAudioRecorder();
 const conversationStore = useConversationStore();
-const { speechToText } = useChatAssistantApi();
 
 watch(blob, async (value) => {
   const formData = new FormData();
@@ -13,8 +11,7 @@ watch(blob, async (value) => {
 
   if (!value) return;
 
-  const text = await speechToText(formData);
-  await conversationStore.pushMessage(text);
+  await conversationStore.pushMessage("");
 });
 </script>
 

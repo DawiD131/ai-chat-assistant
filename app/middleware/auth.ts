@@ -1,7 +1,3 @@
-export default defineNuxtRouteMiddleware((to, _from) => {
-  const session = useSupabaseSession();
+import { useAuthStore } from "~/features/chatAssistant/core/auth/useAuthStore";
 
-  if (!session.value) {
-    return navigateTo("/");
-  }
-});
+export default defineNuxtRouteMiddleware((to, _from) => {});

@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-import { useSupabaseClient } from "#imports";
 import { object, string } from "yup";
+import { useAuthStore } from "~/features/chatAssistant/core/auth/useAuthStore";
 
-const client = useSupabaseClient();
 const router = useRouter();
 const user = useSupabaseUser();
 
@@ -10,14 +9,8 @@ const state = reactive({
   email: "",
   password: "",
 });
-async function login() {
-  const { error } = await client.auth.signInWithPassword({
-    email: state.email,
-    password: state.password,
-  });
-  if (!error) return router.push("/chat-assistant");
-  console.log(error);
-}
+
+const authStore = useAuthStore();
 
 watchEffect(async () => {
   if (user.value) {
@@ -33,7 +26,10 @@ const schema = object({
 });
 
 const onSubmit = async () => {
-  await login();
+  await authStore.login({
+    email: state.email,
+    password: state.password,
+  });
 };
 </script>
 

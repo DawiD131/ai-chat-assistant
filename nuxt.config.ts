@@ -48,6 +48,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     private: {
       openAiApiKey: process.env.OPEN_AI_API_KEY,
+      todoistApiKey: process.env.TODOIST_API_KEY,
     },
   },
   supabase: {

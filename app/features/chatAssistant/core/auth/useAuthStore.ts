@@ -5,9 +5,15 @@ import axios from "axios";
 export const useAuthStore = defineStore("useAuthStore", () => {
   const apiRepository = useApiRepository();
   const isAuthenticated = ref(false);
+  const router = useRouter();
 
   const login = async (payload: { email: string; password: string }) => {
-    return await apiRepository.authRepository.login(payload);
+    try {
+      await apiRepository.authRepository.login(payload);
+      await router.push("/chat-assistant");
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const logout = async () => {

@@ -11,7 +11,7 @@ export class EntryRepository {
 
   public async entryQuery(
     payload: EntryQueryPayload,
-  ): Promise<{ answer: string }> {
+  ): Promise<{ answer: string; conversationId: string }> {
     return await this.httpClient.post("/entry", payload);
   }
 }

@@ -37,6 +37,10 @@ const onSubmit = () => {
           icon="i-heroicons-paper-airplane"
         />
       </div>
+      <UButton
+        icon="i-heroicons-arrow-path"
+        @click="conversationStore.clearConversation"
+      />
     </div>
   </UForm>
 </template>

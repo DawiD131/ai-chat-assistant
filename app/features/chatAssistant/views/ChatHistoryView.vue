@@ -5,7 +5,7 @@ import { useConversationHistoryStore } from "~/features/chatAssistant/core/conve
 const conversationHistoryStore = useConversationHistoryStore();
 const conversationStore = useConversationStore();
 
-conversationHistoryStore.fetchHistory();
+onBeforeMount(() => conversationHistoryStore.loadHistory());
 
 const formatDate = (date: Date) => {
   return `${date.getFullYear()}-${date.getDate()}-${date.getMonth() + 1} ${date.getHours()}:${date.getMinutes()}`;
@@ -23,7 +23,7 @@ const formatDate = (date: Date) => {
       </span>
       <div class="flex gap-2">
         <UButton
-          icon="i-heroicons-pencil-square"
+          icon="i-heroicons-arrow-path"
           size="2xs"
           color="blue"
           variant="solid"
@@ -31,11 +31,12 @@ const formatDate = (date: Date) => {
           @click="conversationStore.restoreConversationById(conversation.id)"
         />
         <UButton
-          icon="i-heroicons-pencil-square"
+          icon="i-heroicons-trash"
           size="2xs"
           color="red"
           variant="solid"
           :trailing="false"
+          @click="conversationHistoryStore.deleteConversation(conversation.id)"
         />
       </div>
     </div>

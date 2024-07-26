@@ -10,4 +10,8 @@ export class ConversationRepository {
   async getConversationById(id: string) {
     return await this.httpClient.get(`/conversation/${id}`);
   }
+
+  async deleteConversation(id: string) {
+    return await this.httpClient.delete(`/conversation/${id}`);
+  }
 }

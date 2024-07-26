@@ -6,16 +6,20 @@ export const useConversationHistoryStore = defineStore(
     const apiRepository = useApiRepository();
     const conversationHistory = ref<any>([]);
 
-    const fetchHistory = async () => {
-      const resp =
+    const loadHistory = async () => {
+      conversationHistory.value =
         await apiRepository.conversationRepository.getAllConversations();
+    };
 
-      conversationHistory.value = resp;
+    const deleteConversation = async (id: string) => {
+      await apiRepository.conversationRepository.deleteConversation(id);
+      await loadHistory();
     };
 
     return {
       conversationHistory,
-      fetchHistory,
+      loadHistory,
+      deleteConversation,
     };
   },
 );

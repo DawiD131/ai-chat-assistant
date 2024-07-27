@@ -1,11 +1,17 @@
 import { useApiRepository } from "~/features/chatAssistant/composables/useApiRepository";
+import type { UserSettings } from "~/features/chatAssistant/core/userSettings/models/UserSettings";
 
 export const useUserSettingsStore = defineStore("useUserSettingsStore", () => {
-  const userSettings = ref<any>(null);
+  const userSettings = ref<UserSettings>({
+    todoListWebhook: "",
+  });
 
   const apiRepository = useApiRepository();
 
-  const loadUserSettings = () => {};
+  const loadUserSettings = async () => {
+    userSettings.value =
+      await apiRepository.userSettingsRepository.getUserSettings();
+  };
 
   const updateUserSettings = async (settings: any) => {
     return await apiRepository.userSettingsRepository.updateUserSettings(
@@ -14,6 +20,7 @@ export const useUserSettingsStore = defineStore("useUserSettingsStore", () => {
   };
 
   return {
+    userSettings,
     loadUserSettings,
     updateUserSettings,
   };

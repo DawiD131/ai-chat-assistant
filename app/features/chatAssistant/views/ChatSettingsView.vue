@@ -4,6 +4,9 @@ import AssistantLayout from "~/features/chatAssistant/components/AssistantLayout
 
 <template>
   <AssistantLayout>
-    <UpdateApiTokenForm />
+    <div class="flex flex-col gap-10">
+      <ToolWebhooksForm />
+      <UpdateApiTokenForm />
+    </div>
   </AssistantLayout>
 </template>
